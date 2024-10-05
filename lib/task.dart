@@ -17,7 +17,7 @@ class TaskListScreen extends StatefulWidget {
 
 class _TaskListScreenState extends State<TaskListScreen> {
   final TextEditingController _taskController = TextEditingController();
-  List<Task> _taskList = [];
+  final List<Task> _taskList = [];
   String _selectedPriority = "Low"; // Initial priority
 
   void _addTask() {
@@ -67,7 +67,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                   _selectedPriority = value!;
                 });
               },
-              items: <String>['Low', 'Medium', 'High']
+              items: <String>['Low', 'Normal', 'High']
                   .map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -92,7 +92,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                     title: Text(
                       task.name,
                       style: task.isCompleted
-                          ? TextStyle(
+                          ? const TextStyle(
                               color: Colors.grey, /* Add other styles */
                             )
                           : null,
